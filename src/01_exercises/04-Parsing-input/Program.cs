@@ -21,6 +21,8 @@ namespace _04_Parsing_input
 
             Console.WriteLine(firstInt + secondInt);
 
+            Console.ReadLine();
+
 
 
 

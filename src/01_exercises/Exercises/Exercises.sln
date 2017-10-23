@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-Printing-out-text", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-Parsing-input", "..\04-Parsing-input\04-Parsing-input.csproj", "{3B36F112-F125-416C-9763-6C2431F2CE14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-magic-number", "..\05-magic-number\05-magic-number.csproj", "{C5C9691B-DF36-441D-8650-98369F893CD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3B36F112-F125-416C-9763-6C2431F2CE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B36F112-F125-416C-9763-6C2431F2CE14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B36F112-F125-416C-9763-6C2431F2CE14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C9691B-DF36-441D-8650-98369F893CD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C9691B-DF36-441D-8650-98369F893CD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C9691B-DF36-441D-8650-98369F893CD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C9691B-DF36-441D-8650-98369F893CD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
