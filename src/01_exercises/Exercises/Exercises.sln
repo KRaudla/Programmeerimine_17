@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01-Hello-World", "..\01-Hel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02-Printing-out-text", "..\02-Printing-out-text\02-Printing-out-text.csproj", "{AD7AB4F3-0AC0-4B88-9ACB-84428CDD94B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04-Parsing-input", "..\04-Parsing-input\04-Parsing-input.csproj", "{3B36F112-F125-416C-9763-6C2431F2CE14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AD7AB4F3-0AC0-4B88-9ACB-84428CDD94B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD7AB4F3-0AC0-4B88-9ACB-84428CDD94B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD7AB4F3-0AC0-4B88-9ACB-84428CDD94B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B36F112-F125-416C-9763-6C2431F2CE14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B36F112-F125-416C-9763-6C2431F2CE14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B36F112-F125-416C-9763-6C2431F2CE14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B36F112-F125-416C-9763-6C2431F2CE14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
