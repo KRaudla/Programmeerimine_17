@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05-magic-number", "..\05-ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06-guess-number-while-true", "..\06-guess-number-while-true\06-guess-number-while-true.csproj", "{B6C5A4A0-1513-498D-8147-C6B7BD7005CF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07-Excuses-print-all", "..\07-Excuses-print-all\07-Excuses-print-all.csproj", "{462E2FDA-18C6-4F95-96D9-65438D6293E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B6C5A4A0-1513-498D-8147-C6B7BD7005CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6C5A4A0-1513-498D-8147-C6B7BD7005CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6C5A4A0-1513-498D-8147-C6B7BD7005CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462E2FDA-18C6-4F95-96D9-65438D6293E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462E2FDA-18C6-4F95-96D9-65438D6293E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462E2FDA-18C6-4F95-96D9-65438D6293E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462E2FDA-18C6-4F95-96D9-65438D6293E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
