@@ -11,14 +11,10 @@ namespace _02_Printing_out_text
         static void Main(string[] args)
         {
             Console.WriteLine("Tere, palun sisesta oma nimi:");
-            var name = Console.ReadLine();
+            string name = Console.ReadLine();
             Console.WriteLine("Sinu nimi on: " + name);
-
             Console.ReadLine();
-
-
-
-
+            
         }
     }
 }
