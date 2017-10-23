@@ -18,9 +18,9 @@ namespace _05_magic_number
             int userInput = int.Parse(input);
 
             //generate random number between 0-100
-            //Random rndGenerator = new Random();
-            //int gnrNumber = rndGenerator.Next(1, 101);
-            int gnrNumber = 20;
+            Random rndGenerator = new Random();
+            int gnrNumber = rndGenerator.Next(1, 101);
+            //int gnrNumber = 20;
             // compare user input with generated number
 
             if (userInput == gnrNumber)
@@ -37,7 +37,6 @@ namespace _05_magic_number
             }
             else
             {
-
             }
 
             Console.ReadLine();
