@@ -15,12 +15,9 @@ namespace _08_for_each_loop
             int eCnt = 0;
             foreach(string element in excuses)
             {
-
-                Console.WriteLine($"{eCnt}".);
+                Console.WriteLine($"{eCnt+1}.{element}"); 
                 eCnt++;
             }
-
-
             Console.ReadLine();
         }
     }
