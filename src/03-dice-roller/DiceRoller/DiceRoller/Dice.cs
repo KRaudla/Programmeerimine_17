@@ -6,23 +6,27 @@ using System.Threading.Tasks;
 
 namespace DiceRoller
 {
-    
-
     public class Dice
     {
+        public static Dice D6 => new Dice(6, "d6");
 
-        //define the members of the class. Public, Private, Static
+        public static Dice D8 => new Dice(6, "d8");
 
-        /*taking random initialization out from the 'Roll' method, 
-         * because we should initialize it only once - when the class is constructed */
-        private Random Rnd { get; } = new Random();//'get' or 'set' is the keywords to expose the variables in the controlled way
+        public int Sides { get; }
 
-        public int Roll(int sides)//Return Method: input parameter = sides
+        public string Description { get; }
+
+        private static Random Random { get; } = new Random();
+
+        private Dice(int sides, string description)
         {
-            //Random rnd = new Random();// creating 'rnd' object
+            this.Sides = sides;
+            this.Description = description;
+        }
 
-            //keyword 'this' refers to the current instance of the class
-            return this.Rnd.Next(1, sides + 1);//max value is exclusive, so we have to add +1
+        public int Roll()
+        {
+            return Dice.Random.Next(1, this.Sides + 1); // max value is exlusive, so we have to add +1
         }
 
     }
