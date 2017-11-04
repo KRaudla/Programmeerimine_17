@@ -14,12 +14,24 @@ namespace DiceRoller2
             Console.WriteLine("> Rolling some Dices...");
             Console.WriteLine();//blank line 
 
+            // ask user input and make string array
+            Console.WriteLine("Insert the Command and choose dices to roll");
+            Console.WriteLine(">");
+            string [] inputArray = Console.ReadLine().Split(null);
+
+            //pass this array to parser method and return list of dices
+            DiceRollCommandParser parser = new DiceRollCommandParser();
+            List<Dice> dices = parser.ParseDices(inputArray);
+
+            //make list of dices - manual input
+            //List<Dice> dices = new List<Dice> {Dice.D6,Dice.D6,Dice.D6,Dice.D8,Dice.D8 };
+
             //diceroller object
             DiceRoller diceRoller = new DiceRoller();
-            //make list of dices
-            List<Dice> dices = new List<Dice> {Dice.D6,Dice.D6,Dice.D6,Dice.D8,Dice.D8 };
+
             //roll the dices to get results
             List<DiceRoll> results = diceRoller.Roll(dices);
+            
             //echo results
             foreach(var r in results)
             {
