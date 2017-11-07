@@ -11,12 +11,10 @@ namespace DiceRoller2
         static void Main(string[] args)
         {
 
-            Console.WriteLine("> Rolling some Dices...");
-            Console.WriteLine();//blank line 
-
             // ask user input and make string array
-            Console.WriteLine("Insert the Command and choose dices to roll");
-            Console.WriteLine(">");
+            Console.WriteLine("Insert command and dices to roll.");
+            Console.WriteLine();
+            Console.Write(">");
             string [] inputArray = Console.ReadLine().Split(null);
 
             //pass this array to parser method and return list of dices
@@ -37,10 +35,12 @@ namespace DiceRoller2
             {
                 Console.WriteLine($"1{ r.Description}, { r.Value}");
             }
+            Console.WriteLine();
             //sum the dice values
             Console.WriteLine($"Sum: {results.Sum(x => x.Value)}");
 
-            Console.WriteLine(">");
+            Console.WriteLine();
+            Console.Write("> ");
             Console.ReadLine();
 
         }
