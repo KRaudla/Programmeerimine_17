@@ -10,35 +10,37 @@ namespace DiceRoller
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("> /roll 3d6 2d8");
+            // ask user input and make string array
+            Console.WriteLine("Insert command and dices to roll.");
             Console.WriteLine();
+            Console.Write(">");
+            string[] inputArray = Console.ReadLine().Split(null);
 
-            DiceRoller diceRoller = new DiceRoller();//diceroller object
+            //pass this array to parser method and return list of dices
+            DiceRollCommandParser parser = new DiceRollCommandParser();
+            List<Dice> dices = parser.ParseDices(inputArray);
 
-            // make new list of dices. Dices are pre-defined with sides and description.
-            List<Dice> dices = new List<Dice> { Dice.D6, Dice.D6, Dice.D6, Dice.D8, Dice.D8 };
+            //make list of dices - manual input
+            //List<Dice> dices = new List<Dice> {Dice.D6,Dice.D6,Dice.D6,Dice.D8,Dice.D8 };
 
-            //1) Make new diceRolls list to save results. 
-            //2) Roll the dice objects. Each dice has a parameter (sides, description).
-            List<DiceRoll> diceRolls = diceRoller.Roll(dices);//Roll will return the List of results
+            //diceroller object
+            DiceRoller diceRoller = new DiceRoller();
 
-            foreach (var diceRoll in diceRolls)//loop through the list of diceroll results
+            //roll the dices to get results
+            List<DiceRoll> results = diceRoller.Roll(dices);
+
+            //echo results
+            foreach (var r in results)
             {
-                //for each dice, show the result
-                Console.WriteLine($"1{diceRoll.DiceDesc}: {diceRoll.Value}");
+                Console.WriteLine($"1{ r.Description}, { r.Value}");
             }
-            //blank line
             Console.WriteLine();
-            //sum the the result of rolls
-            Console.WriteLine($"Roll total: {diceRolls.Sum(diceResult => diceResult.Value)}");
+            //sum the dice values
+            Console.WriteLine($"Sum: {results.Sum(x => x.Value)}");
+
             Console.WriteLine();
             Console.Write("> ");
-
             Console.ReadLine();
         }
-
-        
-
-       
     }
 }

@@ -8,26 +8,22 @@ namespace DiceRoller
 {
     public class Dice
     {
-        public static Dice D6 => new Dice(6, "d6");
-
-        public static Dice D8 => new Dice(6, "d8");
-
+        //class variables
         public int Sides { get; }
+        public string Desc { get; }
 
-        public string Description { get; }
-
-        private static Random Random { get; } = new Random();
-
-        private Dice(int sides, string description)
+        //lets define the dice constructor
+        public Dice(int sides, string desc)
         {
             this.Sides = sides;
-            this.Description = description;
+            this.Desc = desc;
         }
-
+        //make random for roll method
+        private static Random Rnd { get; } = new Random();
+        // roll method to return randomly generated number
         public int Roll()
         {
-            return Dice.Random.Next(1, this.Sides + 1); // max value is exlusive, so we have to add +1
+            return Dice.Rnd.Next(1, this.Sides + 1);
         }
-
     }
 }
