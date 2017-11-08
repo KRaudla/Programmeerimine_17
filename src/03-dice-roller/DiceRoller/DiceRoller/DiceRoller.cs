@@ -8,21 +8,17 @@ namespace DiceRoller
 {
     class DiceRoller
     {
-        //roll the list of dice objects and return list of results public diceroll is a constructor
         public List<DiceRoll> Roll(List<Dice> dices)
         {
-            var results = new List<DiceRoll>();//list for saving results
-
-            //loop through the dices
+            var results = new List<DiceRoll>();
             foreach (var dice in dices)
             {
-                //roll each dice
-                var diceValue = dice.Roll();//roll method returns int
-
-                //add new object to list. Get description from rolled dice object and value from dice roll method
-                results.Add(new DiceRoll(dice.Desc, diceValue));
+                //roll each dice, return int
+                var diceValue = dice.Roll();
+                
+                //add new object to list.
+                results.Add(new DiceRoll(dice.Description, diceValue));
             }
-            //return list of objects
             return results;
         }
     }

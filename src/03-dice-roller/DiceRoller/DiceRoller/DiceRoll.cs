@@ -10,7 +10,6 @@ namespace DiceRoller
     {
         public string Description { get; }
         public int Value { get; }
-        //diceroll constructor
         public DiceRoll(string description, int value)
         {
             this.Description = description;

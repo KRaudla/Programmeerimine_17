@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace DiceRoller
 {
-    public class DiceRollCommandParser
+    class DiceRollCommandParser
     {
-        public List<Dice> ParseDices(string[] inputArray)
+        public List<Dice> ParseDices(string inputCommand)
         {
             var results = new List<Dice>();//save dice objects to return
-
+            //inputstring into array
+            string[] inputArray = inputCommand.Split(' ');
             if (inputArray != null && inputArray[0] == "/roll")
             {
                 // loop through the array, starting from 2nd element

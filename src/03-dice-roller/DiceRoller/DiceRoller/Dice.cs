@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace DiceRoller
 {
-    public class Dice
+    class Dice
     {
-        //class variables
         public int Sides { get; }
-        public string Desc { get; }
+        public string Description { get; }
 
-        //lets define the dice constructor
-        public Dice(int sides, string desc)
+        public Dice(int sides, string description)
         {
             this.Sides = sides;
-            this.Desc = desc;
+            this.Description = description;
         }
         //make random for roll method
         private static Random Rnd { get; } = new Random();
+
         // roll method to return randomly generated number
         public int Roll()
         {
