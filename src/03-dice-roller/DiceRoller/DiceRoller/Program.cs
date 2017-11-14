@@ -10,35 +10,30 @@ namespace DiceRoller
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("> /roll 3d6 2d8");
+            Console.WriteLine("Insert command and dices to roll.");
             Console.WriteLine();
+            Console.Write(">");
+            string inputCommand = Console.ReadLine();
 
-            DiceRoller diceRoller = new DiceRoller();//diceroller object
+            //pass string value to parser method and return list of dices
+            DiceRollCommandParser parser = new DiceRollCommandParser();
+            List<Dice> dices = parser.ParseDices(inputCommand);
+            
+            //roll the dices to get results
+            DiceRoller diceRoller = new DiceRoller();
+            List<DiceRoll> results = diceRoller.Roll(dices);
 
-            // make new list of dices. Dices are pre-defined with sides and description.
-            List<Dice> dices = new List<Dice> { Dice.D6, Dice.D6, Dice.D6, Dice.D8, Dice.D8 };
-
-            //1) Make new diceRolls list to save results. 
-            //2) Roll the dice objects. Each dice has a parameter (sides, description).
-            List<DiceRoll> diceRolls = diceRoller.Roll(dices);//Roll will return the List of results
-
-            foreach (var diceRoll in diceRolls)//loop through the list of diceroll results
+            foreach (var result in results)
             {
-                //for each dice, show the result
-                Console.WriteLine($"1{diceRoll.DiceDesc}: {diceRoll.Value}");
+                Console.WriteLine($"1{ result.Description}, { result.Value}");
             }
-            //blank line
+            
             Console.WriteLine();
-            //sum the the result of rolls
-            Console.WriteLine($"Roll total: {diceRolls.Sum(diceResult => diceResult.Value)}");
+            //sum the dice values
+            Console.WriteLine($"Sum: {results.Sum(x => x.Value)}");
             Console.WriteLine();
             Console.Write("> ");
-
             Console.ReadLine();
         }
-
-        
-
-       
     }
 }

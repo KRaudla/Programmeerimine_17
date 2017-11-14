@@ -6,28 +6,23 @@ using System.Threading.Tasks;
 
 namespace DiceRoller
 {
-    public class Dice
+    class Dice
     {
-        public static Dice D6 => new Dice(6, "d6");
-
-        public static Dice D8 => new Dice(6, "d8");
-
         public int Sides { get; }
-
         public string Description { get; }
 
-        private static Random Random { get; } = new Random();
-
-        private Dice(int sides, string description)
+        public Dice(int sides, string description)
         {
             this.Sides = sides;
             this.Description = description;
         }
+        //make random for roll method
+        private static Random Rnd { get; } = new Random();
 
+        // roll method to return randomly generated number
         public int Roll()
         {
-            return Dice.Random.Next(1, this.Sides + 1); // max value is exlusive, so we have to add +1
+            return Dice.Rnd.Next(1, this.Sides + 1);
         }
-
     }
 }

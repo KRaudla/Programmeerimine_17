@@ -8,17 +8,12 @@ namespace DiceRoller
 {
     class DiceRoll
     {
-        public string DiceDesc { get; }
-
+        public string Description { get; }
         public int Value { get; }
-
-        public DiceRoll(string diceDescription, int value)
+        public DiceRoll(string description, int value)
         {
-            this.DiceDesc = diceDescription;
+            this.Description = description;
             this.Value = value;
         }
-
-
-
     }
 }
