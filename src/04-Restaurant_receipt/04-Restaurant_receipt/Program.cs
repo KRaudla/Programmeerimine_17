@@ -22,14 +22,12 @@ namespace _04_Restaurant_receipt
                 Console.WriteLine();
                 float input = float.Parse(Console.ReadLine());
                 
-
                 if (input == -1)
                 {
                     break;
                 }
                 items.Add(new Items(input));
             }
-
 
             var total = items.Sum(x => x.Value);
             Console.WriteLine($"Subtotal: {total}");
