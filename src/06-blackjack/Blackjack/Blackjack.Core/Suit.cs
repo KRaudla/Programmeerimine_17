@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Blackjack.Core
 {
-    public class Class1
+    public enum Suit
     {
+        Heart = 1,
+        Diamond=2,
+        Spade=3,
+        Club=4,
     }
 }
