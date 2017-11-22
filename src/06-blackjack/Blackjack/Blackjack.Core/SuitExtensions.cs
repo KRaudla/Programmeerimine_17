@@ -8,18 +8,19 @@ namespace Blackjack.Core
 {
     static class SuitExtensions
     {
-        public static Char GetShortName(this Suit suit)
+        /*public static Char GetShortName(this Suit suit)
         {
             switch (suit)
             {
-                case Suit.Club: return 'C';
-                case Suit.Diamond: return 'D';
-                case Suit.Heart: return 'H';
-                case Suit.Spade: return 'S';
+                
+                case Suit.Club: return '♣';
+                case Suit.Diamond: return '♦';
+                case Suit.Heart: return '♥';
+                case Suit.Spade: return '♠';
                 default: throw new InvalidOperationException();
 
             }
-        }
+        }*/
 
 
     }

@@ -9,20 +9,18 @@ namespace Blackjack.Core
     public class Card
     {
         //Fields
+        public string Description => _rank +_suit;
         private readonly string _rank;
-        private readonly Suit _suit;
+        private readonly string _suit;
         private readonly int _points;
+        public bool Hidden { get; set; }  
 
-        //Properties
-        public string Description => _rank + _suit.GetShortName();
-        public bool Hidden { get; set; } 
-
-        public Card(string rank, Suit suit, int points, bool hidden)
+        public Card(string rank, string suit, int points, bool hidden)
         {
             this._rank = rank;
             this._suit = suit;
             this._points = points;
-            this.Hidden = Hidden;
+            this.Hidden = hidden;
             
         }
 
