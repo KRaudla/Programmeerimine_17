@@ -9,17 +9,13 @@ namespace Blackjack.Core
     public class Deck
     {
         private readonly List<Card> _cards = new List<Card>(52);
-        private static Random _random { get; } = new Random();
         private string[] _suits = new string[] { "♠", "♥", "♣", "♦" };
         private string[] _ranks = new string[] { "A","2","3","4","5","6","7","8","9","10","J","Q","K" };
-
-        
 
         public Deck()
         {
             AddCards();
         }
-
 
         public void AddCards()
         {
@@ -29,27 +25,51 @@ namespace Blackjack.Core
                 {
                     if (rank == "J"|| rank == "Q" || rank == "K")
                     {
-                        this._cards.Add(new Card(rank.ToString(),suit,10,false));
+                        this._cards.Add(new Card(rank.ToString(),suit,10));
                     }
                     else if (rank == "A")
                     {
-                        this._cards.Add(new Card(rank.ToString(), suit, 1, false));
+                        //The Ace is always valued at 11. When hand going over 21, Ace is valued as 1.
+                        this._cards.Add(new Card(rank.ToString(), suit, 11));
                     }
                     else
                     {
-                        this._cards.Add(new Card(rank, suit, int.Parse(rank), false));
+                        this._cards.Add(new Card(rank, suit, int.Parse(rank)));
                     }
                 }
             }
         }
 
-        public Card TakeCard()
+        private static Random _random { get; } = new Random();
+        private List<Card> playerCards = new List<Card>();
+        private List<Card> dealerCards = new List<Card>();
+
+        public Card TakeCard(string role)
         {
-            
+            //when there is no cards...then...
             var selectedCardIndex = _random.Next(_cards.Count);
             var selectedCard = _cards.ElementAt(selectedCardIndex);
             _cards.RemoveAt(selectedCardIndex);
+            
+            if (role == "player")
+            {
+                playerCards.Add(selectedCard);
+            }
+            else
+            {
+                dealerCards.Add(selectedCard);
+            }
             return selectedCard;
+        }
+
+        public string ShowCards()
+        {
+            StringBuilder builder = new StringBuilder();
+            foreach (var card in this.playerCards)
+            {
+                builder.AppendFormat(card.Description+" ");
+            }
+            return builder.ToString();
         }
     }
 }
