@@ -12,40 +12,26 @@
             Console.WriteLine("Welcome to the game of Blackjack");
             Console.WriteLine();
 
-            var player = "player";
-            var dealer = "dealer";
-
             var deck = new Deck();
+            var player = new Player();
+            var dealer = new Dealer();
+
+            deck.DealCards();
+
+            
+            
+            /* we have 2 players
+            - dealer deals 2 cards for player and dealer. Dealer cards must be hidden
+            - player knows, to take new card or finish
+            - after finish dealer shows his cards
+            - who wins?
+
+            */
+            var dealedCards = deck.DealCards();
+
 
             Console.WriteLine($"You have been dealt: {deck.TakeCard(player).Description} {deck.TakeCard(player).Description}");
             Console.WriteLine();
-            while (true)
-            {
-                Console.WriteLine("What do you want to do?");
-                Console.WriteLine("----Choose 1 - Take antoher card");
-                Console.WriteLine("----Choose 2 - Finish");
-                Console.WriteLine();
-
-                var answer = int.Parse(Console.ReadLine());
-                if (answer==1)
-                {
-                    Console.WriteLine($"You have been dealt: {deck.TakeCard(player).Description}");
-                    Console.WriteLine($"Your hand: {deck.ShowCards()}");
-                }
-                else if (answer==2)
-                {
-                    Console.WriteLine("While-loop break");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid operator");
-                    break;
-                }
-            }
-            
-            
-            
 
             //Dealer: If the total is 17 or more, he must stand. If the total is 16 or under, he must take a card. 
             //Console.WriteLine($"House has been dealt: {GetCardDescription(deck.Next())}, {GetCardDescription(deck.Next())}");

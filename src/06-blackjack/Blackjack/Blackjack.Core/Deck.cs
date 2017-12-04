@@ -10,22 +10,22 @@ namespace Blackjack.Core
     {
         private readonly List<Card> _cards = new List<Card>(52);
         private string[] _suits = new string[] { "♠", "♥", "♣", "♦" };
-        private string[] _ranks = new string[] { "A","2","3","4","5","6","7","8","9","10","J","Q","K" };
+        private string[] _ranks = new string[] { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
 
         public Deck()
         {
-            AddCards();
+            PopulateDeck52();
         }
 
-        public void AddCards()
+        private void PopulateDeck52()
         {
             foreach (var suit in _suits)
             {
                 foreach (var rank in _ranks)
                 {
-                    if (rank == "J"|| rank == "Q" || rank == "K")
+                    if (rank == "J" || rank == "Q" || rank == "K")
                     {
-                        this._cards.Add(new Card(rank.ToString(),suit,10));
+                        this._cards.Add(new Card(rank.ToString(), suit, 10));
                     }
                     else if (rank == "A")
                     {
@@ -41,35 +41,19 @@ namespace Blackjack.Core
         }
 
         private static Random _random { get; } = new Random();
-        private List<Card> playerCards = new List<Card>();
-        private List<Card> dealerCards = new List<Card>();
 
-        public Card TakeCard(string role)
+        public void DealCards(Player player)
         {
-            //when there is no cards...then...
-            var selectedCardIndex = _random.Next(_cards.Count);
-            var selectedCard = _cards.ElementAt(selectedCardIndex);
-            _cards.RemoveAt(selectedCardIndex);
+            List<Card> dealedCards = new List<Card>();
+            //first two cards to deal
+            for (int i = 0; i < 2; i++)
+            {
+                var selectedCardIndex = _random.Next(_cards.Count);
+                var dealedCard = _cards.ElementAt(selectedCardIndex);
+                _cards.RemoveAt(selectedCardIndex);
+                player.TakeDealedCard(dealedCard);
+            }
             
-            if (role == "player")
-            {
-                playerCards.Add(selectedCard);
-            }
-            else
-            {
-                dealerCards.Add(selectedCard);
-            }
-            return selectedCard;
-        }
-
-        public string ShowCards()
-        {
-            StringBuilder builder = new StringBuilder();
-            foreach (var card in this.playerCards)
-            {
-                builder.AppendFormat(card.Description+" ");
-            }
-            return builder.ToString();
-        }
+        }      
     }
 }
