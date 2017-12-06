@@ -8,17 +8,17 @@ namespace Blackjack.Core
 {
     public class Card
     {
-        public string Description => _rank +_suit;
-        private readonly string _rank;
-        private readonly string _suit;
-        private readonly int _points;
+        public string Description => Rank +Suit;
+        public readonly string Rank;
+        public readonly string Suit;
+        public readonly int Points;
         
 
         public Card(string rank, string suit, int points)
         {
-            this._rank = rank;
-            this._suit = suit;
-            this._points = points;
+            this.Rank = rank;
+            this.Suit = suit;
+            this.Points = points;
         }
     }
 }

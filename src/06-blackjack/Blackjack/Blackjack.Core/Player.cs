@@ -8,12 +8,14 @@ namespace Blackjack.Core
 {
     public class Player
     {
+       
+        public Hand PlayerHand { get; }
 
-        private List<Card> _playerCards = new List<Card>();
-        public void TakeDealedCard(Card dealedCard)
+        public Player()
         {
-            _playerCards.Add(dealedCard);
+            this.PlayerHand = new Hand();
         }
 
+        
     }
 }
