@@ -23,15 +23,18 @@
 
             while (true)
             {
-                Console.WriteLine("1 - Take another card");
-                Console.WriteLine("2 - Finish");
+                Console.WriteLine("Choose 'N' - Take another card");
+                Console.WriteLine("Choose 'F' - Finish");
                 var answer = Console.ReadKey();
-                if (answer.KeyChar == 1)
+                Console.WriteLine();
+
+                if (answer.Key==ConsoleKey.N)
                 {
                     Console.WriteLine("taking antoher card");
                     break;
                 }
-                if (answer.KeyChar == 2)
+
+                if (answer.Key == ConsoleKey.F)
                 {
                     Console.WriteLine("finishing the game");
                     break;
@@ -66,6 +69,7 @@
 
 
             //Console.WriteLine($"You have been dealt: {deck.TakeCard(player).Description} {deck.TakeCard(player).Description}");
+
             Console.WriteLine();
 
             //Dealer: If the total is 17 or more, he must stand. If the total is 16 or under, he must take a card. 
