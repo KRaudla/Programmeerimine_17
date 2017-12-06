@@ -41,16 +41,12 @@ namespace Blackjack.Core
         }
 
         private static Random _random { get; } = new Random();
-        public void Deal(Hand hand, int numberOfCards)
+        public void Deal(Hand hand)
         {
-            for (int i = 0; i < numberOfCards; i++)
-            {
-                var selectedCardIndex = _random.Next(_cards.Count);
-                var dealedCard = _cards.ElementAt(selectedCardIndex);
-                _cards.RemoveAt(selectedCardIndex);
-                hand.Take(dealedCard);//adds new card to hand,depends on hand
-            }
-
+            var selectedCardIndex = _random.Next(_cards.Count);
+            var dealedCard = _cards.ElementAt(selectedCardIndex);
+            _cards.RemoveAt(selectedCardIndex);
+            hand.Take(dealedCard);//adds new card to hand,depends on hand
         }      
     }
 }
