@@ -18,18 +18,17 @@
             var player = new Player();
             var dealer = new Dealer();
 
-            //2 cards
+            //Deal 2 cards for player and dealer
             deck.Deal(player.PlayerHand);
             deck.Deal(player.PlayerHand);
             deck.Deal(dealer.DealerHand);
             deck.Deal(dealer.DealerHand);
-            //take new card or finish?
-            Console.WriteLine($"You have been dealt 2 cards:{player.PlayerHand.ShowCards().Select(card => card.Description).Aggregate((card, next) => next + ' ' + card)}");
-
-            Console.WriteLine($"You have {player.PlayerHand.ShowPoints()} points");
-            Console.WriteLine("-------------------------------------------------");
+            //Ask player: take new card or finish?            
             while (true)
             {
+                Console.WriteLine($"You have been dealt 2 cards:{player.PlayerHand.ShowCards().Select(card => card.Description).Aggregate((card, next) => next + ' ' + card)}");
+                Console.WriteLine($"You have {player.PlayerHand.ShowPoints()} points");
+                Console.WriteLine("-------------------------------------------------");
                 Console.WriteLine("Choose 'N' - Take another card");
                 Console.WriteLine("Choose 'F' - Finish");
                 Console.Write(">");
@@ -38,14 +37,12 @@
 
                 if (answer.Key==ConsoleKey.N)
                 {
-                    Console.WriteLine("taking antoher card");
-                    break;
+                    deck.Deal(player.PlayerHand);
                 }
 
                 if (answer.Key == ConsoleKey.F)
                 {
                     Console.WriteLine("finishing the game");
-
                     break;
                 }
             }

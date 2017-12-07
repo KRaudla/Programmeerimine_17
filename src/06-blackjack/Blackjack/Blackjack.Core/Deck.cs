@@ -43,6 +43,7 @@ namespace Blackjack.Core
         private static Random _random { get; } = new Random();
         public void Deal(Hand hand)
         {
+            //when there is no cards in deck....then..
             var selectedCardIndex = _random.Next(_cards.Count);
             var dealedCard = _cards.ElementAt(selectedCardIndex);
             _cards.RemoveAt(selectedCardIndex);
