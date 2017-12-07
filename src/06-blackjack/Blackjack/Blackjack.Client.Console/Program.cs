@@ -11,7 +11,7 @@
         {
             Console.Title = "♠♥♣♦ Blackjack";
             Console.WriteLine("Welcome to the game of Blackjack");
-            Console.WriteLine("-------------------------------------------------");
+            
             
 
             var deck = new Deck();
@@ -26,34 +26,70 @@
             //Ask player: take new card or finish?            
             while (true)
             {
-                Console.WriteLine($"You have been dealt 2 cards:{player.PlayerHand.ShowCards().Select(card => card.Description).Aggregate((card, next) => next + ' ' + card)}");
-                Console.WriteLine($"You have {player.PlayerHand.ShowPoints()} points");
                 Console.WriteLine("-------------------------------------------------");
-                Console.WriteLine("Choose 'N' - Take another card");
+                Console.WriteLine($"Your cards: {player.PlayerHand.ShowCards()} ({player.PlayerHand.ShowPoints()} points)");
+                //Console.WriteLine("-------------------------------------------------");
+                if (player.PlayerHand.ShowPoints() > 21)
+                {
+                    Console.WriteLine("--------------------YOU LOST---------------------");
+                    break;
+                }
+                Console.WriteLine("Choose 'T' - Take another card");
                 Console.WriteLine("Choose 'F' - Finish");
                 Console.Write(">");
+                
                 var answer = Console.ReadKey();
                 Console.WriteLine();
 
-                if (answer.Key==ConsoleKey.N)
+                if (answer.Key==ConsoleKey.T)
                 {
                     deck.Deal(player.PlayerHand);
                 }
 
                 if (answer.Key == ConsoleKey.F)
                 {
-                    Console.WriteLine("finishing the game");
+                    //Dealer: If the total is 16 or under, he must take a card.
+                    if (dealer.DealerHand.ShowPoints()<=16)
+                    {
+                        deck.Deal(dealer.DealerHand);
+                    }
+
+                    if (dealer.DealerHand.ShowPoints() < player.PlayerHand.ShowPoints() && player.PlayerHand.ShowPoints()==21)
+                    {
+                        Console.WriteLine("---------------BLACKJACK - YOU WON---------------");
+                        Console.WriteLine($"Your cards: {player.PlayerHand.ShowCards()} ({player.PlayerHand.ShowPoints()} points)");
+                        Console.WriteLine($"Dealer cards: {dealer.DealerHand.ShowCards()} ({dealer.DealerHand.ShowPoints()} points)");
+
+
+                    }
+                    if (dealer.DealerHand.ShowPoints() > 21 || dealer.DealerHand.ShowPoints() < player.PlayerHand.ShowPoints())
+                    {
+                        Console.WriteLine("--------------------YOU WON----------------------");
+                        Console.WriteLine($"Your cards: {player.PlayerHand.ShowCards()} ({player.PlayerHand.ShowPoints()} points)");
+                        Console.WriteLine($"Dealer cards: {dealer.DealerHand.ShowCards()} ({dealer.DealerHand.ShowPoints()} points)");
+
+
+                    }
+                    if (dealer.DealerHand.ShowPoints() == player.PlayerHand.ShowPoints())
+                    {
+                        Console.WriteLine("---------PUSH - player and dealer have the same total----------");
+                        Console.WriteLine($"Your cards: {player.PlayerHand.ShowCards()} ({player.PlayerHand.ShowPoints()} points)");
+                        Console.WriteLine($"Dealer cards: {dealer.DealerHand.ShowCards()} ({dealer.DealerHand.ShowPoints()} points)");
+
+                    }
+
+                    if (dealer.DealerHand.ShowPoints() > player.PlayerHand.ShowPoints())
+                    {
+                        Console.WriteLine("--------------------YOU LOST---------------------");
+                        Console.WriteLine($"Your cards: {player.PlayerHand.ShowCards()} ({player.PlayerHand.ShowPoints()} points)");
+                        Console.WriteLine($"Dealer cards: {dealer.DealerHand.ShowCards()} ({dealer.DealerHand.ShowPoints()} points)");
+
+
+                    }
+
                     break;
                 }
             }
-
-            //Dealer: If the total is 17 or more, he must stand. If the total is 16 or under, he must take a card. 
-            //Console.WriteLine($"House has been dealt: {GetCardDescription(deck.Next())}, {GetCardDescription(deck.Next())}");
-            
-            
-            Console.WriteLine("House has been dealt [?]");
-            
-
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
