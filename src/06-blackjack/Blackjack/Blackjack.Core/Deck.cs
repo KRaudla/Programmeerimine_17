@@ -14,11 +14,13 @@ namespace Blackjack.Core
 
         public Deck()
         {
+            //_cards.Clear();
             PopulateDeck52();
         }
 
         private void PopulateDeck52()
         {
+            _cards.Clear();
             foreach (var suit in _suits)
             {
                 foreach (var rank in _ranks)
@@ -43,11 +45,15 @@ namespace Blackjack.Core
         private static Random _random { get; } = new Random();
         public void Deal(Hand hand)
         {
-            //when there is no cards in deck....then..
+            //when there is less thsn 4 cards in deck
+            if (_cards.Count<4)
+            {
+                PopulateDeck52();
+            }
             var selectedCardIndex = _random.Next(_cards.Count);
             var dealedCard = _cards.ElementAt(selectedCardIndex);
             _cards.RemoveAt(selectedCardIndex);
-            hand.Take(dealedCard);//adds new card to hand,depends on hand
+            hand.Take(dealedCard);
         }      
     }
 }

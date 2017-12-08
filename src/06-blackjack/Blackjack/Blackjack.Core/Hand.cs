@@ -14,5 +14,10 @@ namespace Blackjack.Core
         public void Take(Card card) => this.cardsInHand.Add(card);
         public int ShowPoints() => this.cardsInHand.Sum(c => c.Points);
         public string ShowCards() => cardsInHand.Select(card => card.Description).Aggregate((card, next) => next + ' ' + card);
+        public void ClearHand()
+        {
+            cardsInHand.Clear();
+
+        }
     }
 }
